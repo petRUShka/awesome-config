@@ -11,7 +11,7 @@ local vicious   = require("vicious")
 local naughty   = require("naughty")
 
 -- infolder widgets
-local gpu       = require("widgets/gpu")
+require("widgets/gpu")
 
 graphwidth  = 50
 graphheight = 20
@@ -155,7 +155,7 @@ vicious.cache(vicious.widgets.fs)
 -- Root used
 rootfsused = wibox.widget.textbox()
 vicious.register(rootfsused, vicious.widgets.fs,
-  "<span color='" .. beautiful.fg_em .. "'>SSD </span>${/ used_gb}GB ", 97)
+  "<span color='" .. beautiful.fg_em .. "'>HHD </span>${/ used_gb}GB ", 97)
 
 -- Root bar
 -- rootfsbar = awful.widget.progressbar()
@@ -282,3 +282,21 @@ vicious.register(mpdwidget, vicious.widgets.mpd, function (widget, args)
         return args["{Artist}"] .. ' - ' .. args["{Title}"]
     end
 end, 10)
+
+-- {{{ GPU temperature
+gpuicon =  wibox.widget.imagebox()
+gpuicon:set_image(beautiful.widget_temp)
+-- Initialize widget
+gpuwidget = wibox.widget.textbox()
+-- Register widgets
+vicious.register(gpuwidget, vicious.widgets.gpu, " $1C", 19, "nvidia")
+-- }}}
+
+-- {{{ CPU temperature
+cpuicon = wibox.widget.imagebox()
+cpuicon:set_image(beautiful.widget_cpu)
+-- Initialize widgets
+tzswidget = wibox.widget.textbox()
+-- Register widgets
+vicious.register(tzswidget, vicious.widgets.thermal, " $1C", 19, "thermal_zone0")
+-- }}}
