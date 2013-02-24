@@ -155,6 +155,8 @@ for s = 1, scount do
     left_wibox:add(space)
 
     local right_wibox = wibox.layout.fixed.horizontal()
+    right_wibox:add(systray)
+    right_wibox:add(pipe)
     right_wibox:add(mpdwidget)
     right_wibox:add(pipe)
     right_wibox:add(gpuicon)
@@ -163,7 +165,6 @@ for s = 1, scount do
     right_wibox:add(cpuicon)
     right_wibox:add(tzswidget)
     right_wibox:add(pipe)
---    separator, gpuwidget, gpuicon,
     right_wibox:add(cpugraph0)
     right_wibox:add(cpupct0)
     right_wibox:add(pipe)

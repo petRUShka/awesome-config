@@ -300,3 +300,7 @@ tzswidget = wibox.widget.textbox()
 -- Register widgets
 vicious.register(tzswidget, vicious.widgets.thermal, " $1C", 19, "thermal_zone0")
 -- }}}
+
+-- {{{ System tray
+systray = wibox.widget.systray()
+-- }}}
