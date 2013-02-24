@@ -242,7 +242,7 @@ vicious.register(batpct, vicious.widgets.bat, function(widget, args)
     end
 
     return args[2] .. "%"
-end, nil, "BAT1")
+end, nil, "BAT0")
 
 -- Buttons
 function popup_bat()
