@@ -43,8 +43,9 @@ end
 local altkey     = "Mod1"
 local modkey     = "Mod4"
 
-local terminal   = "urxvt"
-local browser    = "google-chrome"
+-- local terminal   = "urxvt"
+local terminal   = "xterm"
+local browser    = "firefox"
 local editor     = os.getenv("EDITOR") or "vim"
 local editor_cmd = terminal .. " -e " .. editor
 
@@ -57,18 +58,18 @@ local scount     = screen.count()
 -- {{{ Layouts
 local layouts =
 {
-    awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
---  awful.layout.suit.fair,
---  awful.layout.suit.fair.horizontal,
---  awful.layout.suit.spiral,
---  awful.layout.suit.spiral.dwindle,
---  awful.layout.suit.max,
---  awful.layout.suit.max.fullscreen,
---  awful.layout.suit.magnifier
+    awful.layout.suit.floating, -- 1
+    awful.layout.suit.tile, -- 2
+    awful.layout.suit.tile.left, --3
+    awful.layout.suit.tile.bottom, --4
+    awful.layout.suit.tile.top, --5
+    awful.layout.suit.fair, --6
+    awful.layout.suit.fair.horizontal, --7
+    awful.layout.suit.spiral, --8
+    awful.layout.suit.spiral.dwindle, --9
+    awful.layout.suit.max, --10
+    awful.layout.suit.max.fullscreen, --11
+    awful.layout.suit.magnifier --12
 }
 -- }}}
 
@@ -99,9 +100,11 @@ end
 
 -- {{{ Tags
 tags = {
-    names = { "一", "二", "三", "四" },
-    layouts = { layouts[3], layouts[1], layouts[4], layouts[4] }
+--  names  = { "term", "vim", "web", "mail", "im", 6, 7, "rss", "media" },
+  names  = { "term", "vim", "web", "mail", "im", "rss", "media" },
+  layouts = { layouts[4], layouts[2], layouts[2], layouts[10], layouts[2], layouts[12], layouts[1]}
 }
+
 for s = 1, scount do
     tags[s] = awful.tag(tags.names, s, tags.layouts)
 end
@@ -160,9 +163,9 @@ for s = 1, scount do
     right_wibox:add(cpugraph1)
     right_wibox:add(cpupct1)
     right_wibox:add(pipe)
-    right_wibox:add(cpugraph2)
-    right_wibox:add(cpupct2)
-    right_wibox:add(pipe)
+--    right_wibox:add(cpugraph2)
+--    right_wibox:add(cpupct2)
+--    right_wibox:add(pipe)
     right_wibox:add(memused)
     right_wibox:add(mempct)
     right_wibox:add(pipe)
@@ -214,7 +217,7 @@ globalkeys = awful.util.table.join(
         if client.focus then client.focus:raise() end
     end),
     -- }}}
-    
+
     -- {{{ Layout maniplation
     awful.key({ modkey, }, "l", function() awful.tag.incmwfact( 0.05) end),
     awful.key({ modkey, }, "h", function() awful.tag.incmwfact(-0.05) end),
