@@ -13,7 +13,7 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local vicious = require("vicious")
 -- Widgets
-local wi = require("wi")
+local wi = require("widgets")
 -- }}}
 
 -- {{{ Error handling

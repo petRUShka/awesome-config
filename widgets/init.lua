@@ -10,6 +10,9 @@ local beautiful = require("beautiful")
 local vicious   = require("vicious")
 local naughty   = require("naughty")
 
+-- infolder widgets
+local gpu       = require("widgets/gpu")
+
 graphwidth  = 50
 graphheight = 20
 pctwidth    = 20
@@ -273,9 +276,9 @@ mpdicon:set_image(beautiful.widget_mpd)
 -- Song info
 mpdwidget = wibox.widget.textbox()
 vicious.register(mpdwidget, vicious.widgets.mpd, function (widget, args)
-    if args["{state}"] == "Stop" then 
+    if args["{state}"] == "Stop" then
         return " - "
-    else 
+    else
         return args["{Artist}"] .. ' - ' .. args["{Title}"]
     end
 end, 10)
