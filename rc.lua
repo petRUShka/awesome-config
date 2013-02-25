@@ -115,6 +115,9 @@ menubar.utils.terminal = terminal
 
 -- Clock
 mytextclock = awful.widget.textclock("<span color='" .. beautiful.fg_em .. "'>%a %m/%d</span> @ %I:%M %p")
+mytextclock:buttons(awful.util.table.join(
+  awful.button({ }, 1, function () exec("pylendar.py") end)
+))
 
 -- {{{ Wiboxes
 mywibox = {}
@@ -173,6 +176,10 @@ for s = 1, scount do
     right_wibox:add(pipe)
 --    right_wibox:add(cpugraph2)
 --    right_wibox:add(cpupct2)
+--    right_wibox:add(pipe)
+--    right_wibox:add(upicon)
+--    right_wibox:add(netwidget)
+--    right_wibox:add(dnicon)
 --    right_wibox:add(pipe)
     right_wibox:add(memused)
     right_wibox:add(mempct)
@@ -331,3 +338,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- infolder widgets
+require("autorun")

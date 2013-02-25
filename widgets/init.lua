@@ -195,9 +195,9 @@ vicious.register(volpct, vicious.widgets.volume, "$1%", nil, "Master")
 -- Buttons
 volicon:buttons(awful.util.table.join(
     awful.button({ }, 1,
-        function() awful.util.spawn_with_shell("amixer -q set Master 3+% unmute") end),
+        function() awful.util.spawn_with_shell("vol_up") end),
     awful.button({ }, 3,
-        function() awful.util.spawn_with_shell("amixer -q set Master 3-% unmute") end)
+        function() awful.util.spawn_with_shell("vol_down") end)
 ))
 volpct:buttons(volicon:buttons())
 volspace:buttons(volicon:buttons())
@@ -304,3 +304,16 @@ vicious.register(tzswidget, vicious.widgets.thermal, " $1C", 19, "thermal_zone0"
 -- {{{ System tray
 systray = wibox.widget.systray()
 -- }}}
+
+---- {{{ Network usage
+--dnicon = wibox.widget.imagebox()
+--upicon = wibox.widget.imagebox()
+--dnicon:set_image(beautiful.widget_net)
+--upicon:set_image(beautiful.widget_netup)
+---- Initialize widget
+--netwidget = wibox.widget.textbox()
+---- Register widget
+--vicious.register(netwidget, vicious.widgets.net, '<span color="'
+--  .. beautiful.fg_netdn_widget ..'">${wlan0 down_kb}</span> <span color="'
+--  .. beautiful.fg_netup_widget ..'">${wlan0 up_kb}</span>', 3)
+---- }}}
