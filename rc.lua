@@ -247,6 +247,15 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "r", awesome.restart),
     -- }}}
 
+    -- all minimized clients are restored
+    awful.key({ modkey, "Shift"   }, "n",
+    function()
+      local tag = awful.tag.selected()
+      for i=1, #tag:clients() do
+        tag:clients()[i].minimized=false
+      end
+    end),
+
     -- Menubar
     awful.key({ modkey }, "r", function() menubar.show() end)
 )
