@@ -1,4 +1,7 @@
 local awful = require("awful")
+local beautiful = require("beautiful")
+
+local scount = screen.count()
 
 --awful.rules.rules = {
 --    {   rule = { },
@@ -31,6 +34,7 @@ awful.rules.rules = {
 --    { rule = { class = "Akregator" },   properties = { tag = tags[scount][8]}},
 --    { rule = { name  = "Alpine" },      properties = { tag = tags[1][4]} },
     { rule = { class = "Pidgin" },       properties = { tag = tags[1][5]} },
+    { rule = { class = "Skype" },       properties = { tag = tags[1][5]} },
     { rule = { class = "Ark" },         properties = { floating = true } },
 --    { rule = { class = "Geeqie" },      properties = { floating = true } },
 --    { rule = { class = "ROX-Filer" },   properties = { floating = true } },
