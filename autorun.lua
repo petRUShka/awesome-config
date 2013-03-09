@@ -46,6 +46,7 @@ run_once("pidgin")
 run_once("xscreensaver -no-splash")
 --run_once("kbdd")
 run_once("firefox")
+run_once('setxkbmap -layout "us, ru" -option "grp:caps_toggle,grp_led:caps"')
 -- Use the second argument, if the programm you wanna start,
 -- differs from the what you want to search.
 -- run_once("redshift", "nice -n19 redshift -l 51:14 -t 5700:4500")
